@@ -15,9 +15,9 @@ function Header() {
           Button #3
         </a>
       </div>
-      <h1>Blog</h1>
-      <div style={{ alignItems: "center" }}>
-        <input />
+      <h1 className="text-4xl">Blog</h1>
+      <div style={{ alignItems: "center", display: "flex" }}>
+        <input style={{ borderBottom: "1px solid black" }} />
         <button style={{ height: "100%" }}>
           <span>
             <img src={SearchIcon} className="search-icon" />

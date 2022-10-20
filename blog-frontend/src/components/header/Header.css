@@ -1,7 +1,7 @@
 .custom-header {
   display: flex;
   flex-direction: row;
-  align-items: middle;
+  align-items: end;
   justify-content: space-between;
   padding: 0 32px;
   max-width: 1192px;
@@ -12,6 +12,7 @@
   padding: 5px 16px;
   border: 1px solid #858d90;
   border-radius: 36px;
+  height: 36px;
 }
 .search-icon {
   align-self: center;
@@ -19,10 +20,9 @@
   height: 20px;
 }
 
-/*
+
 @media screen and (max-width: 1250px) {
   .custom-header {
     padding: 0px 1rem;
   }
 }
-*/
