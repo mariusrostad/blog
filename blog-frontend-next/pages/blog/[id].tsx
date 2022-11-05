@@ -1,6 +1,7 @@
-import Link from "next/link";
-import "../index.css";
-import "../tailwind.css";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Link from 'next/link';
+import '../index.css';
+import '../tailwind.css';
 
 export async function getServerSideProps(context: any) {
   const id = context.params.id;
@@ -18,17 +19,19 @@ export default function Blog(props: any) {
 
   if (error !== undefined) {
     return (
-      <div className='mx-auto max-w-5xl'>
+      <div className="mx-auto max-w-5xl">
         <p>Could not find that blog</p>
       </div>
-    )
+    );
   }
 
   return (
-    <div key={id} className='mx-auto max-w-5xl'>
-      <Link href={'/blog'} className='text-blue-400'>Back to overview</Link>
+    <div key={id} className="mx-auto max-w-5xl">
+      <Link href={'/blog'} className="text-blue-400">
+        Back to overview
+      </Link>
       <br />
-      <h2 className={"text-2xl"}>{heading}</h2>
+      <h2 className={'text-2xl'}>{heading}</h2>
       <p className="italic">{summary}</p>
       <p>{content}</p>
     </div>
