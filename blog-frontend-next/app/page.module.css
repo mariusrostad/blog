@@ -1,0 +1,16 @@
+.menu {
+    display: block;
+}
+
+.mobile-menu {
+    display: hidden;
+}
+
+@media (max-width: 800px) {
+    .menu {
+        display: hidden;
+    }
+    .mobile-menu {
+        display: block;
+    }
+}
