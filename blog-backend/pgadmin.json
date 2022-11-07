@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Blog DB",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "postgres",
+      "Password": "password",
+      "Host": "db",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "blog"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=blog
+    ports:
+      - "5432:5432"
+    networks:
+      - blog_backend
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_PASSWORD=password
+      - PGADMIN_DEFAULT_EMAIL=post@gres.no
+    networks:
+      - blog_backend
+    ports:
+      - "8081:80"
+    volumes:
+      - ./pgadmin.json:/pgadmin4/servers.json
+networks:
+  blog_backend:
