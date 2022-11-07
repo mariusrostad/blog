@@ -36,4 +36,4 @@ out/
 ### VS Code ###
 .vscode/
 
-.jpb
+!/.jpb/jpb-settings.xml
