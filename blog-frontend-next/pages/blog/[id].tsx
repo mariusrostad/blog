@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Link from 'next/link';
+import BlogContainer from '../../components/blogcontainer/BlogContainer';
 import '../index.css';
 import '../tailwind.css';
 
@@ -20,20 +20,20 @@ export default function Blog(props: any) {
   if (error !== undefined) {
     return (
       <div className="mx-auto max-w-5xl">
-        <p>Could not find that blog</p>
+        <p>That blog doesn&apos;t exist</p>
       </div>
     );
   }
 
   return (
-    <div key={id} className="mx-auto max-w-5xl">
-      <Link href={'/blog'} className="text-blue-400">
-        Back to overview
-      </Link>
-      <br />
-      <h2 className={'text-2xl'}>{heading}</h2>
-      <p className="italic">{summary}</p>
-      <p>{content}</p>
+    <div className="m-2">
+      <h1 className={'text-4xl pb-4'}>Blog innlegg</h1>
+      <BlogContainer
+        id={id}
+        heading={heading}
+        summary={summary}
+        content={content}
+      />
     </div>
   );
 }
