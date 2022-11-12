@@ -5,7 +5,9 @@ export interface BlogContainerProps {
   heading: string;
   summary: string;
   content: string;
+  error?: string;
 }
+
 export interface BlogContainerWithChildrenProps {
   children?: ReactNode;
   id: number;

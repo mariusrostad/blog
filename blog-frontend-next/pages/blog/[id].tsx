@@ -1,33 +1,45 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+  InferGetServerSidePropsType,
+} from 'next';
 import BlogContainer from '../../components/blogcontainer/BlogContainer';
-import '../index.css';
-import '../tailwind.css';
+import { BlogContainerProps } from '../../types/blog';
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(
+  context: GetServerSidePropsContext
+): Promise<GetServerSidePropsResult<BlogContainerProps> | object> {
+  if (context.params === undefined) {
+    return {
+      props: {
+        error: 'Missing blog parameter',
+      },
+    };
+  }
   const id = context.params.id;
   const res = await fetch(`http://localhost:8080/api/v1/blogs/blog?id=${id}`);
   const data = await res.json();
 
   return {
-    props: { data },
+    props: data,
   };
 }
 
-export default function Blog(props: any) {
-  const { id, heading, summary, content } = props.data;
-  const { error } = props.data;
-
-  if (error !== undefined) {
+export default function Blog(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
+  if (props.error !== undefined) {
     return (
       <div className="mx-auto max-w-5xl">
-        <p>That blog doesn&apos;t exist</p>
+        <p>That blog doesn&apos;t exist. Reason: {props.error}</p>
       </div>
     );
   }
 
+  const { id, heading, summary, content } = props;
   return (
-    <div className="m-2">
-      <h1 className={'text-4xl pb-4'}>Blog innlegg</h1>
+    <div className="rounded-2xl py-4 px-2 md:px-4 border-gray-700 border md:max-w-5xl md:mx-auto">
+      <h1 className={'text-4xl'}>Blog innlegg</h1>
       <BlogContainer
         id={id}
         heading={heading}

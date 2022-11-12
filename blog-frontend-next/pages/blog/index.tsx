@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { GetServerSidePropsResult, InferGetServerSidePropsType } from 'next';
 import Link from 'next/link';
 import BlogContainer from '../../components/blogcontainer/BlogContainer';
-import '../index.css';
-import '../tailwind.css';
+import PagableResponse from '../../types/Pagable';
 
 interface BlogsProps {
   id: number;
@@ -11,22 +10,30 @@ interface BlogsProps {
   content: string;
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<
+  GetServerSidePropsResult<PagableResponse<BlogsProps>>
+> {
   const result = await fetch('http://localhost:8080/api/v1/blogs', {
     cache: 'no-cache',
   });
-  const data = await result.json();
+  const data: PagableResponse<BlogsProps> = await result.json();
   return {
-    props: { data },
+    props: data,
   };
 }
 
-export default function BlogIndex(props: any) {
-  const data: BlogsProps[] = props.data;
+export default function BlogIndex(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
+  const { content, empty } = props;
+  if (empty) {
+    return <p>No results found</p>;
+  }
+
   return (
-    <div className="m-2">
-      <h1 className={'text-4xl pb-4'}>Blog innlegg</h1>
-      {data.map(({ id, heading, summary, content }) => (
+    <div className="rounded-2xl py-4 px-2 md:px-4 border-gray-700 border md:max-w-5xl md:mx-auto">
+      <h1 className={'text-4xl'}>Blog innlegg</h1>
+      {content.map(({ id, heading, summary, content }) => (
         <BlogContainer
           key={id}
           id={id}
