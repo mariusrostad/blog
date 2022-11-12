@@ -1,0 +1,12 @@
+.mobileMenu {
+  display: hidden;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: hidden;
+  }
+  .mobileMenu {
+    display: inline;
+  }
+}
