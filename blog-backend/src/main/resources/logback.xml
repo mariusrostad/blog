@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="ture">
+    <variable scope="context" name="tidPattern" value="%replace(tid=%X{tid}){'[a-z]+=( |$)', ''}"/>
+
+    <include resource="org/springframework/boot/logging/logback/default.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <logger name="org.springframework.web" level="INFO"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date{"yyyy-MM-dd'T'HH:mm:ss,SSSZ"} severity=%-5level ${tidPattern} origin="%logger{0}" %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

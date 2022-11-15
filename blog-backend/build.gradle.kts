@@ -36,7 +36,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	// runtimeOnly("com.h2database:h2")
 	// runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
@@ -45,6 +45,13 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
+	// Logging
+	testImplementation("ch.qos.logback:logback-classic:1.4.4")
+	testImplementation("ch.qos.logback:logback-core:1.4.4")
+	testImplementation("ch.qos.logback:logback-access:1.4.4")
+	testImplementation("net.logstash.logback:logstash-logback-encoder:7.2")
+	// implementation("org.slf4j:slf4j-api:2.0.3")
 }
 
 tasks.withType<KotlinCompile> {

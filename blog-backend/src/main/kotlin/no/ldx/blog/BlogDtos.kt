@@ -13,3 +13,18 @@ data class BlogCreateDto(
             content = content,
         )
 }
+
+fun toBlogDto(blog: Blog): BlogDto =
+    BlogDto(
+        id = blog.id,
+        heading = blog.heading,
+        summary = blog.summary,
+        content = blog.content,
+    )
+
+data class BlogDto(
+    val id: Long,
+    val heading: String,
+    val summary: String,
+    val content: String,
+)

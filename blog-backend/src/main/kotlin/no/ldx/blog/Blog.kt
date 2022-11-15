@@ -6,12 +6,12 @@ import javax.persistence.*
 @Table(name = "blog")
 class Blog(
     id: Long?,
-    @Column
+    @Column(length = 512)
     val heading: String,
-    @Column
-    val content: String,
-    @Column
+    @Column(columnDefinition = "TEXT")
     val summary: String,
+    @Column(columnDefinition = "TEXT")
+    val content: String,
 ) {
     @Id
     @Column(name = "blog_id", nullable = false)
