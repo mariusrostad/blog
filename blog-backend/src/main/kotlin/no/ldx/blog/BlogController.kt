@@ -15,11 +15,16 @@ class BlogController(
     private val logger = LoggerFactory.getLogger(BlogController::class.java)
 
     @GetMapping
-    fun allBlogs(pageable: Pageable): Iterable<Blog> = blogRepository.findAll(pageable)
+    fun allBlogs(pageable: Pageable): Iterable<Blog> {
+        logger.info("function=allBlogs pageNumber={}", pageable.pageNumber)
+        return blogRepository.findAll(pageable)
+    }
 
     @GetMapping("/blog")
-    fun getBlog(@RequestParam id: Long): Blog =
-        blogRepository.findById(id).orElseThrow { throw ResourceNotFoundException() }
+    fun getBlog(@RequestParam id: Long): Blog {
+        logger.info("function=getBlog id={} type=stats", id)
+        return blogRepository.findById(id).orElseThrow { throw ResourceNotFoundException() }
+    }
 
     @PostMapping("/blog")
     fun createBlog(@RequestBody blog: BlogCreateDto): Blog {
