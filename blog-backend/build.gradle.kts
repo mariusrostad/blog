@@ -47,7 +47,7 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 
 	// Logging
-	testImplementation("ch.qos.logback:logback-classic:1.4.4")
+	testImplementation("ch.qos.logback:logback-classic:1.4.5")
 	testImplementation("ch.qos.logback:logback-core:1.4.4")
 	testImplementation("ch.qos.logback:logback-access:1.4.5")
 	testImplementation("net.logstash.logback:logstash-logback-encoder:7.2")
