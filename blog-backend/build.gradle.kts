@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.7.5"
+	id("org.springframework.boot") version "2.7.6"
 	id("io.spring.dependency-management") version "1.0.14.RELEASE"
-	kotlin("jvm") version "1.7.20"
-	kotlin("plugin.spring") version "1.7.20"
-	kotlin("plugin.jpa") version "1.7.20"
+	kotlin("jvm") version "1.7.22"
+	kotlin("plugin.spring") version "1.7.22"
+	kotlin("plugin.jpa") version "1.7.22"
 }
 
 group = "no.ldx"
@@ -47,9 +47,9 @@ dependencies {
 	testImplementation("org.springframework.security:spring-security-test")
 
 	// Logging
-	testImplementation("ch.qos.logback:logback-classic:1.4.4")
+	testImplementation("ch.qos.logback:logback-classic:1.4.5")
 	testImplementation("ch.qos.logback:logback-core:1.4.4")
-	testImplementation("ch.qos.logback:logback-access:1.4.4")
+	testImplementation("ch.qos.logback:logback-access:1.4.5")
 	testImplementation("net.logstash.logback:logstash-logback-encoder:7.2")
 	// implementation("org.slf4j:slf4j-api:2.0.3")
 }
