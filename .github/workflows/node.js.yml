@@ -10,6 +10,20 @@ on:
     branches: [ "main" ]
 
 jobs:
+  setupenv:
+    runs-on: ubuntu-latest
+    
+    
+    strategy:
+      matrix:
+        pnpm:
+          - 7.15.0
+        node-version: [16.x, 18.x]
+
+    steps:
+    - name: Install pnpm
+    - run: npm i -g pnpm@7.15.0
+
   build:
     runs-on: ubuntu-latest
 
