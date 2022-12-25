@@ -21,7 +21,6 @@ jobs:
         node-version: [16.x, 18.x]
 
     steps:
-    - name: Install pnpm
     - run: npm i -g pnpm@7.15.0
 
   build:
