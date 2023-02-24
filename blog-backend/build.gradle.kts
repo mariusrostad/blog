@@ -50,7 +50,7 @@ dependencies {
 	testImplementation("ch.qos.logback:logback-core:1.4.5")
 	testImplementation("ch.qos.logback:logback-classic:1.4.5")
 	testImplementation("ch.qos.logback:logback-access:1.4.5")
-	testImplementation("net.logstash.logback:logstash-logback-encoder:7.2")
+	testImplementation("net.logstash.logback:logstash-logback-encoder:7.3")
 	// implementation("org.slf4j:slf4j-api:2.0.3")
 }
 
